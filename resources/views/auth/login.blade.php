@@ -3,6 +3,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
+			<div class="login-logo">
+				<img src="{{ asset('images/logo.png') }}" height="90px"/>
+			</div>
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Please Sign In</h3>
@@ -33,7 +36,7 @@
 									
 								</label>
 							</div>
-							<button class="btn btn-lg btn-success btn-block">Login</button>
+							<button class="btn btn-success btn-block">Login</button>
 						</fieldset>
 					</form>
 				</div>

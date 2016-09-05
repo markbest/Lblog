@@ -104,7 +104,8 @@ body{background-color:#efefef;font-family: Helvetica, Arial, sans-serif;backgrou
 .picture_wall li img{width:190px;margin-bottom:10px;}
 
 /* 系统后台 */
-.bg-grey{background-color:#f8f8f8;}
+.login-logo{text-align:center;margin:150px 0px 5px 0px;}
+.nav > li > a{padding:8px 15px;}
 .admin-page-header{font-weight:bold;padding-bottom: 9px;border-bottom: 1px solid #eeeeee;}
 .center{text-align:center;}
 .admin-btn{font-weight:bold;}

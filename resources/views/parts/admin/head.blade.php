@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-	<link href="{{ asset('/css/admin/sb-admin-2.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/admin/admin.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/customer.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">

@@ -21,7 +21,7 @@ body {
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
-        margin: 0 0 0 250px;
+        margin: 0 0 0 150px;
         border-left: 1px solid #e7e7e7;
     }
 }
@@ -129,7 +129,7 @@ body {
     .sidebar {
         z-index: 1;
         position: absolute;
-        width: 250px;
+        width: 150px;
         margin-top: 51px;
     }
 
@@ -209,7 +209,7 @@ body {
 }
 
 .login-panel {
-    margin-top: 25%;
+    margin-top: 0%;
 }
 
 .flot-chart {

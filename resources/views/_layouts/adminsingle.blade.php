@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('parts.admin.head');
-<body class="bg-grey admin_body">
+<body class="admin_body">
 
 	@yield('content')
 

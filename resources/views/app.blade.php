@@ -10,7 +10,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{ url('/') }}">mark-here.com</a>
+			<a class="navbar-brand" href="{{ url('/') }}">Mark-here</a>
 		</div>
 
 		<ul class="nav navbar-top-links navbar-right in" style="margin-right:0px;">
