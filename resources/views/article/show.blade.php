@@ -25,67 +25,21 @@
 <div id="content" class="article_content" style="padding: 5px;">
 	<p>{!! $article->body !!}</p>
 </div>
-<div id="comments" style="margin-top:50px;padding:5px;">
-    @if(count($errors) > 0)
-	<div class="alert alert-danger">
-		<strong>Whoops!</strong> There were some problems with your input.<br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-            @endforeach
-        </ul>
-	</div>
-    @endif
-    
-	<div class="conmments">
-	@foreach ($comment as $comment)
-		<div class="one" style="border-top: solid 20px #efefef; padding: 5px 20px;">
-			<div class="nickname" data="{{ $comment->nickname }}">
-				<h6 style="float:left;">{{ $comment->nickname }}</h6>
-				<h6 style="float:right;">{{ $comment->created_at }}</h6>
-			</div>
-			<div class="content" style="clear:both;">
-	            <p style="padding: 10px;">
-	              {{ $comment->content }}
-	            </p>
-			</div>
-			<div class="reply" style="text-align: right; padding: 5px; display: none;">
-				<a href="#new" onclick="reply(this);">Reply</a>
-			</div>
-        </div>
-	@endforeach
-	</div>
-</div>
-<div id="new">
-	<form action="{{ URL('comment/store') }}" method="POST">
-		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="article_id" value="{{ $article->id }}">
-        @if (checklogin())
-        <div class="form-group" style="display:none;">
-			<label>昵称</label>
-			<input type="text" name="nickname" class="form-control" style="width: 250px;" required="required" value="{{ getCustomer()->name }}">
-        </div>
-        <div class="form-group" style="display:none;">
-			<label>邮箱</label>
-			<input type="email" name="email" class="form-control" style="width: 250px;" value="{{ getCustomer()->email }}">
-        </div>
-        <div class="form-group" style="display:none;">
-			<label>网站</label>
-			<input type="text" name="website" class="form-control" style="width: 250px;">
-        </div>
-        <div class="form-group">
-			<label>内容</label>
-			<textarea name="content" id="newFormContent" class="form-control" rows="10" required="required"></textarea>
-        </div>
-        <button type="submit" style="width:100px" class="btn btn-lg btn-success col-lg-12">提交</button>
-		@endif
-	</form>
-</div>
-<script>
-	function reply(a) {
-		var nickname = a.parentNode.parentNode.firstChild.nextSibling.getAttribute('data');
-		var textArea = document.getElementById('newFormContent');
-		textArea.innerHTML = '@'+nickname+' ';
-	}
+
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="{{ $article->id }}" data-title="{{ $article->title }}" data-url="{{ Request::getRequestUri() }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mark-here"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
 </script>
+<!-- 多说公共JS代码 end -->
 @endsection
