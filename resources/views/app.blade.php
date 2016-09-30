@@ -53,5 +53,6 @@
 
 	<!-- Scripts -->
 	<script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>

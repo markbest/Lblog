@@ -31,7 +31,7 @@
 								 <form action="{{ URL('admin/customer/'.$customer->id) }}" method="POST" style="display: inline;">
 									<input name="_method" type="hidden" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-									<button type="submit" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>删除</button>
+									<button type="button" class="btn btn-danger del_btn"><i class="fa fa-trash fa-fw"></i>删除</button>
 								</form>
 							</td>
 						</tr>
