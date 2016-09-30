@@ -17,7 +17,6 @@
 			<div class="other">
 				<span class="date">{{ shortDate($article->created_at) }}</span>
 				<span class="views_count">{{ $article->views}}人阅读</span>
-				<span class="review"><a href="#new">评论</a>({{ $article->reviews}})</span>
 			</div>
 		</div>
 	</div>

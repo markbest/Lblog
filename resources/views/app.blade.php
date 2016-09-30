@@ -34,9 +34,6 @@
 						<a href="{{ URL('admin/category') }}"><i class="fa fa-dashboard fa-fw"></i> 分类管理</a>
 					</li>
 					<li>
-						<a href="{{ url('/admin/comments' )}}"><i class="fa fa-comment fa-fw"></i> 评论管理</a>
-					</li>
-					<li>
 						<a href="{{ url('/admin/customer' )}}"><i class="fa fa-user fa-fw"></i> 用户管理</a>
 					</li>
 					<li>
