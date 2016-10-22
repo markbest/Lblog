@@ -11,4 +11,7 @@
 	<script src="{{ asset('/js/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('/js/jquery.tagcanvas.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('js/jquery.pjax.js') }}"></script>
+	<script src="{{ asset('js/nprogress.js') }}"></script>
+	<link href="{{ asset('css/nprogress.css') }}" rel="stylesheet" />
 </head>

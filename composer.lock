@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8e127736c948aa184e15f70cbaf6123a",
-    "content-hash": "f012244e39bfe4a07dd1d05e53987d3f",
+    "hash": "50480d1fca3834ca85f8c6805e372002",
+    "content-hash": "233a57fa14322499856c1b451e257b91",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1020,6 +1020,58 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "spatie/laravel-pjax",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-pjax.git",
+                "reference": "30e1509517a6371a5774a29e99e2db204cb7fc5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/spatie/laravel-pjax/30e1509517a6371a5774a29e99e2db204cb7fc5b.zip",
+                "reference": "30e1509517a6371a5774a29e99e2db204cb7fc5b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^5.1",
+                "illuminate/support": "^5.1",
+                "php": "^5.5.0|^7.0",
+                "symfony/css-selector": "^2.7|^3.0",
+                "symfony/dom-crawler": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Pjax\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A pjax middleware for Laravel 5",
+            "homepage": "https://github.com/spatie/laravel-pjax",
+            "keywords": [
+                "laravel-pjax",
+                "pjax",
+                "spatie"
+            ],
+            "time": "2016-02-18 15:16:46"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2788,6 +2840,48 @@
                 "xunit"
             ],
             "time": "2015-10-02 06:51:40"
+        },
+        {
+            "name": "rcrowe/turbo",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rcrowe/Turbo.git",
+                "reference": "f870d6bbfb969a30841de67e62df2cfa3426c739"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/rcrowe/Turbo/f870d6bbfb969a30841de67e62df2cfa3426c739.zip",
+                "reference": "f870d6bbfb969a30841de67e62df2cfa3426c739",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Turbo": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Crowe",
+                    "email": "hello@vivalacrowe.com",
+                    "homepage": "http://vivalacrowe.com"
+                }
+            ],
+            "description": "Think turbolinks but for your PHP application. Powered by pjax.",
+            "keywords": [
+                "laravel",
+                "pjax",
+                "turbolinks"
+            ],
+            "time": "2013-06-06 16:44:35"
         },
         {
             "name": "sebastian/comparator",
