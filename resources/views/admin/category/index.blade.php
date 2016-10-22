@@ -2,7 +2,10 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="admin-page-header">分类管理<a href="{{ URL('admin/category/create') }}" class="btn btn-success" style="margin-left:10px;">新增分类</a></h3>
+        <h3 class="admin-page-header">
+			<i class="fa fa-home fa-fw"></i>
+			分类管理 <a href="{{ URL('admin/category/create') }}" class="admin-btn btn btn-primary" style="margin-left:10px;">新增分类</a>
+		</h3>
     </div>
 </div>
 <div class="row">

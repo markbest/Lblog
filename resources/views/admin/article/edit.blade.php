@@ -3,7 +3,7 @@
 @include('editor::head')
 <div class="row">
     <div class="col-lg-8">
-        <h3 class="admin-page-header">{{ $article->title }}</h3>
+        <h3 class="admin-page-header"><i class="fa fa-home fa-fw"></i>文章管理 / {{ $article->title }}</h3>
     </div>
 </div>
 <div class="row">

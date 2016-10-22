@@ -2,11 +2,11 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="admin-page-header">{{ $customer->name }}</h3>
+        <h3 class="admin-page-header"><i class="fa fa-home fa-fw"></i>用户管理 / {{ $customer->name }}</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
 		<div class="admin-panel-body">
 		
 		@if (count($errors) > 0)

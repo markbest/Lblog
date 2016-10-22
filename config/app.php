@@ -136,6 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'YuanChao\Editor\EndaEditorServiceProvider',
+		HieuLe\Active\ActiveServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
@@ -193,7 +194,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-		'EndaEditor' => 'YuanChao\Editor\Facade\EndaEditorFacade'
+		'EndaEditor' => 'YuanChao\Editor\Facade\EndaEditorFacade',
+		'Active' => HieuLe\Active\Facades\Active::class
 	],
 
 ];

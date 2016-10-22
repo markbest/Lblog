@@ -2,8 +2,10 @@
 <html lang="zh-CN">
 	@include('parts.head')
 	<body>
-		@include('parts.header')
-		<div class="container" style="margin-top: 20px;">
+		<div class="top_content">
+			@include('parts.top')
+		</div>
+		<div class="container" style="margin-top:20px;">
 			<div class="main_container">
 				<div class="left_content col-md-9">
 			       @yield('content')

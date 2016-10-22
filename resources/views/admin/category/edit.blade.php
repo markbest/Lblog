@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-lg-8">
-        <h3 class="admin-page-header">{{ $category->title }}</h3>
+        <h3 class="admin-page-header"><i class="fa fa-home fa-fw"></i>分类管理 / {{ $category->title }}</h3>
     </div>
 </div>
 <div class="row">

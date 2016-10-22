@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.1.*",
-		"yuanchao/laravel-5-markdown-editor": "dev-master"
+		"yuanchao/laravel-5-markdown-editor": "dev-master",
+		"hieu-le/active": "^3.3"
 	},
 	"minimum-stability": "dev",
 	"require-dev": {

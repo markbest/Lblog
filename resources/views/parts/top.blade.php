@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse" id="as-example-navbar-collapse-1">
 			@foreach($Categories as $cate)
 			<ul class="nav navbar-nav">
-				<li><a href="{{ URL('category/'. $cate->title) }}">{{ $cate->title}}</a></li>
+				<li class="{{ active_class(if_uri_pattern(['category/'.$cate->title]), 'active', '') }}"><a href="{{ URL('category/'. $cate->title) }}">{{ $cate->title}}</a></li>
 			</ul>
 			@endforeach
 			<ul class="nav navbar-nav navbar-right" style="margin-right:0px;">

@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('parts.admin.head')
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mark的私人博客</title>
+
+	<link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
+	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/admin/admin.css') }}" rel="stylesheet">
+	<link href="{{ asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+
+	<!-- Fonts -->
+	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<script src="{{ asset('/js/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
+</head>
 <body class="admin_body">
-	<nav class="navbar navbar-default navbar-static-top active" role="navigation" style="margin-bottom:0px;">
+	<nav class="navbar navbar-default navbar-static-top">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="{{ url('/') }}">Mark-here</a>
+			<a class="navbar-brand" href="{{ url('/') }}">Mark的私人博客</a>
 		</div>
 
-		<ul class="nav navbar-top-links navbar-right in" style="margin-right:0px;">
+		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown active">
 				<a class="dropdown-toggle active" data-toggle="dropdown" href="###">
-					<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+					<i class="fa fa-user fa-fw"></i>  {{ Auth::user()->name }}  <i class="fa fa-caret-down"></i>
 				</a>
 				<ul class="dropdown-menu dropdown-user in">
 					<li><a href="{{ url('/auth/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
 				</ul>
 			</li>
 		</ul>
+	</nav>
 
-		<div class="navbar-default sidebar" role="navigation">
-			<div class="sidebar-nav navbar-collapse active">
-				<ul class="nav in metismenu" id="side-menu">
-					<li>
-						<a href="{{ url('/admin/article') }}"><i class="fa fa-edit fa-fw"></i> 文章管理</a>
+	<div class="main-content">
+		<div class="left-menu-aside">
+			<div class="menu_dropdown" role="navigation">
+				<ul>
+					<li class="{{ active_class(if_uri_pattern(['admin/article*']), 'active', '') }}">
+						<a href="{{ url('admin/article') }}"><i class="fa fa-edit fa-fw"></i> 文章管理</a>
 					</li>
-					<li>
+					<li class="{{ active_class(if_uri_pattern(['admin/category*']), 'active', '') }}">
 						<a href="{{ URL('admin/category') }}"><i class="fa fa-dashboard fa-fw"></i> 分类管理</a>
 					</li>
-					<li>
+					<li class="{{ active_class(if_uri_pattern(['admin/customer*']), 'active', '') }}">
 						<a href="{{ url('/admin/customer' )}}"><i class="fa fa-user fa-fw"></i> 用户管理</a>
 					</li>
-					<li>
+					<li class="{{ active_class(if_uri_pattern(['admin/picture*']), 'active', '') }}">
 						<a href="{{ url('/admin/picture' )}}"><i class="fa fa-picture-o fa-fw"></i> 图片库</a>
 					</li>
-					<li>
+					<li class="{{ active_class(if_uri_pattern(['admin/setting']), 'active', '') }}">
 						<a href="{{ url('/admin/setting' )}}"><i class="fa fa-gear fa-fw"></i> 基础设置</a>
 					</li>
 				</ul>
 			</div>
 		</div>
-	</nav>
-	
-	<div id="page-wrapper">
-	    @yield('content')
+		<div id="right-content-box" class="right-content-box">
+			<div class="container">
+				@yield('content')
+			</div>
+		</div>
 	</div>
 
 	<!-- Scripts -->
