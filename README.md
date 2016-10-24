@@ -17,7 +17,8 @@
 - 后台简单的图片墙管理
 
 #安装使用
-- git clone git@github.com:markbest/laravel_blog.git
+- 从[github](https://github.com/markbest/laravel_blog)上下载源代码
+- 执行composer install
 - 配置env数据库信息
 - 安装数据库：php artisan migrate
 - 填充数据库：php artisan db:seed；
