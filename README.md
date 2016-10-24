@@ -22,5 +22,5 @@
 - 配置env数据库信息
 - 安装数据库：php artisan migrate
 - 填充测试数据：php artisan db:seed
-- 博客后台登录地址：/admin 用户名：admin  密码：123456
+- 博客后台登录地址：http://xxx/admin 用户名：admin@admin.com  密码：123456
 
