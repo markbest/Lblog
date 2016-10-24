@@ -6,7 +6,9 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="demo-wrapper">
-				  	<div class="admin-page-header"><h1>Drag and Drop Picture<a class="pic_oper" href="{{ URL('admin/picture/create') }}">View All Picture</a></h1></div>
+				  	<div class="admin-page-header">
+						<i class="fa fa-home fa-fw"></i>Drag and Drop Picture <a class="pic_oper" href="{{ URL('admin/picture/create') }}">View All Picture</a>
+					</div>
 				  	<div class="row demo-columns">
 						<div class="col-md-6">
 					  		<div id="drag-and-drop-zone" class="uploader">

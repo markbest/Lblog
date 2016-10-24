@@ -10,7 +10,7 @@
     <div class="col-md-8">
 		<div class="admin-panel-body">
 		
-		@if (count($errors) > 0)
+			@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<strong>Whoops!</strong> There were some problems with your input.<br><br>
 				<ul>
@@ -19,7 +19,7 @@
 				@endforeach
 				</ul>
 			 </div>
-		@endif
+			@endif
 		  
 			<form action="{{ URL('admin/article/'.$article->id) }}" method="POST">
 				<input name="_method" type="hidden" value="PUT">
@@ -51,7 +51,7 @@
 						<textarea id="myEditor" name="body">{!! $article->body !!}</textarea>
 					</div>
 				</div>					
-				<button type="submit" class="admin-btn btn btn-success">提交文章</button>
+				<button type="submit" style="font-size:12px;padding:4px 10px;margin-top:-20px;" class="btn btn-primary"><i class="fa fa-floppy-o fa-fw"></i>保存</button>
 			</form>
 		</div>
 	</div>

@@ -14,7 +14,7 @@ class CategoryController extends Controller {
 		}else{
 			abort(404);
 		}
-		return view('category.show')->withArticles($articles)->withCategory($category);
+		return view('frontend.category.show')->withArticles($articles)->withCategory($category);
 	}
 
 }

@@ -2,12 +2,11 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="admin-page-header row">
-            <div class="col-sm-8">
-				<i class="fa fa-home fa-fw"></i>
-				文章管理 <a href="{{ URL('admin/article/create') }}" class="admin-btn btn btn-primary">新增文章</a></div>
-            <div class="col-sm-4 right">
-	            <form action="{{ URL('admin/article') }}" method="GET">
+        <div class="admin-page-header">
+            <div class="col-sm-4"><i class="fa fa-home fa-fw"></i>文章管理</div>
+            <div class="col-sm-8 align-right">
+				<a href="{{ URL('admin/article/create') }}" class="admin-btn-head btn btn-primary"><i class="fa fa-plus-circle fa-fw"></i>新增文章</a>
+				<form action="{{ URL('admin/article') }}" method="GET" style="display:none;">
 					<div class="input-group custom-search-form">
 						<input type="text" class="form-control" name="keywords" placeholder="Search..." value="{{ Request::get('keywords') }}" />
 						<span class="input-group-btn">
@@ -18,7 +17,7 @@
 					</div>
 				</form>
             </div>
-        </h3>
+        </div>
     </div>
 </div>
 <div class="row">

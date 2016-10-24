@@ -10,10 +10,7 @@
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/admin/admin.css') }}" rel="stylesheet">
-	<link href="{{ asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-
-	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href="{{ asset('/css/font-awesome.min.css') }}" rel="stylesheet">
 	<script src="{{ asset('/js/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
 </head>
 <body class="admin_body">
@@ -38,8 +35,8 @@
 		<div class="left-menu-aside">
 			<div class="menu_dropdown" role="navigation">
 				<ul>
-					<li class="{{ active_class(if_uri_pattern(['admin/article*']), 'active', '') }}">
-						<a href="{{ url('admin/article') }}"><i class="fa fa-edit fa-fw"></i> 文章管理</a>
+					<li class="{{ active_class(if_uri_pattern(['admin/article*','admin']), 'active', '') }}">
+						<a href="{{ url('admin/article') }}"><i class="fa fa-pencil-square-o fa-fw"></i> 文章管理</a>
 					</li>
 					<li class="{{ active_class(if_uri_pattern(['admin/category*']), 'active', '') }}">
 						<a href="{{ URL('admin/category') }}"><i class="fa fa-dashboard fa-fw"></i> 分类管理</a>
@@ -51,7 +48,7 @@
 						<a href="{{ url('/admin/picture' )}}"><i class="fa fa-picture-o fa-fw"></i> 图片库</a>
 					</li>
 					<li class="{{ active_class(if_uri_pattern(['admin/setting']), 'active', '') }}">
-						<a href="{{ url('/admin/setting' )}}"><i class="fa fa-gear fa-fw"></i> 基础设置</a>
+						<a href="{{ url('/admin/setting' )}}"><i class="fa fa-cog fa-fw"></i> 基础设置</a>
 					</li>
 				</ul>
 			</div>

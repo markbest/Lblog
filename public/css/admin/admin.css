@@ -4,10 +4,15 @@
 .admin_body .navbar-default .navbar-brand{padding:0px 15px;font-size:18px;line-height:40px;height:40px;color:#ffffff;}
 .admin_body .navbar-default .navbar-header a.navbar-brand, .admin_body .navbar-default .navbar-header a.navbar-brand:hover{color:#ffffff;}
 .admin_body .navbar-right{margin-right:0px;}
+.admin_body .admin-page-header{font-weight:bold;border-bottom:1px solid #eeeeee;margin:5px 0px;font-size:16px;height:40px;line-height:40px;}
+.admin_body .col-sm-4{padding:0px;}
+.admin_body .form-group{margin-bottom:10px;}
+.admin_body .fa{margin-right:2px;}
 .login-logo{text-align:center;margin:150px 0px 5px 0px;}
-.admin_body h3.admin-page-header{font-weight:bold;border-bottom:1px solid #eeeeee;margin-top:5px;font-size:16px;height:40px;line-height:40px;}
 .center{text-align:center;}
+.align-right{text-align:right;}
 .admin-btn{padding:4px 10px;font-size:12px;}
+.admin-btn-head{padding:4px;font-size:12px;}
 table.table-striped > thead > tr > th{border-bottom: 0px}
 table.table > thead > tr > th, table.table > tbody > tr > th,
 table.table > tfoot > tr > th, table.table > thead > tr > td,
@@ -25,12 +30,11 @@ table.table-striped > tbody > tr > td .btn{padding:3px 5px;font-size:12px;}
 .left-menu-aside .menu_dropdown ul li{list-style:none;height:35px;line-height:35px;margin:2px 0px;}
 .left-menu-aside .menu_dropdown ul li:hover,.left-menu-aside .menu_dropdown ul li.active{background-color:#ffffff;}
 .left-menu-aside .menu_dropdown ul li i{margin-left:15px;}
+.left-menu-aside .menu_dropdown ul li a{display:block;}
 .left-menu-aside .menu_dropdown ul li a,.left-menu-aside .menu_dropdown ul li a:hover{color:#333;text-decoration:none;}
 
 /* right content box */
 .right-content-box{margin-left:200px;overflow:hidden;background-color:#fff;}
-.right-content-box .col-md-12{padding:0px;}
-.right-content-box .col-md-12 .panel-default{border:0px;}
 .right-content-box .container{width:100%;color:#000000;padding-left:10px;}
 
 /* picture list */

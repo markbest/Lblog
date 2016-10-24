@@ -6,6 +6,6 @@ class PictureController extends Controller {
 
 	public function index()
 	{
-		return view('picture.list')->withPictures(Picture::all()->sortBy('created_at desc'));
+		return view('frontend.picture.list')->withPictures(Picture::all()->sortBy('created_at desc'));
 	}
 }

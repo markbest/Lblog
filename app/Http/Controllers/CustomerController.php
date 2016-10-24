@@ -20,7 +20,7 @@ class CustomerController extends Controller {
 	
 	public function index()
 	{
-		return view('customer.index');
+		return view('frontend.customer.index');
 	}
 	
 	public function register(Request $request)
@@ -61,7 +61,7 @@ class CustomerController extends Controller {
 			if(isset($token)){
 				return Redirect::to('customer/home');
 			}else{
-				return view('customer.register');
+				return view('frontend.customer.register');
 			}
 		}
 	}
@@ -100,7 +100,7 @@ class CustomerController extends Controller {
 			if(isset($token)){
 				return Redirect::to('customer/home');
 			}else{
-				return view('customer.login');
+				return view('frontend.customer.login');
 			}
 		}
 	}
@@ -182,7 +182,7 @@ class CustomerController extends Controller {
 				return Redirect::back()->withInput()->withErrors('初始密码错误，请重新输入');
 			}
 		}else{
-			return view('customer.setting');
+			return view('frontend.customer.setting');
 		}
 	}
 }

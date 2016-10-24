@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="admin-page-header"><i class="fa fa-home fa-fw"></i>基础设置</h3>
+        <div class="admin-page-header"><i class="fa fa-home fa-fw"></i>基础设置</div>
     </div>
 </div>
 <div class="row">

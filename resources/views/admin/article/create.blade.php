@@ -3,7 +3,7 @@
 @include('editor::head')
 <div class="row">
     <div class="col-lg-8">
-        <h3 class="admin-page-header"><i class="fa fa-home fa-fw"></i>文章管理 / 新建文章</h3>
+        <div class="admin-page-header"><i class="fa fa-home fa-fw"></i>文章管理 / 新建文章</div>
     </div>
 </div>
 <div class="row">
@@ -50,7 +50,7 @@
 						<textarea id="myEditor" name="body"></textarea>
 					</div>
 				</div>					
-				<button type="submit" class="admin-btn btn btn-primary">提交文章</button>
+				<button type="submit" style="font-size:12px;padding:4px 10px;margin-top:-20px;" class="btn btn-primary"><i class="fa fa-floppy-o fa-fw"></i>保存</button>
 			</form>
 		</div>
     </div>
