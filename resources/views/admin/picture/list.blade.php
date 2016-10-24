@@ -32,7 +32,7 @@
 							  <input name="_method" type="hidden" value="PUT">
 							  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 							  <a rel="group" href="{{ $picture->img_url }}" title="{{ $picture->note }}"><img src="{{ $picture->img_url }}" /></a>
-							  Input Picture Note :<textarea name="note" style="height:54px;width:200px;border-color:#ffffff;">{{ $picture->note }}</textarea>
+							  Input Picture Note :<textarea name="note" style="height:54px;width:200px;border-color:#ffffff;padding:5px;font-size:12px;">{{ $picture->note }}</textarea>
 							  <input style="margin:8px 5px 0px 0px;" type="checkbox" value="1" name="delete" />delete <button style="padding:5px 8px;float:right;" class="admin-btn btn btn-info">Save</button>
 						  </form>
 					  </li>
