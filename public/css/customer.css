@@ -99,7 +99,5 @@ body{font-family: Helvetica, Arial, sans-serif;background:url('../images/bg.jpg'
 .works-content ul{margin:0px;padding:0px;}
 .works-content ul li{list-style:none;margin-bottom:20px;}
 .works-content ul li h1{margin:0px;padding:10px 0px;border-bottom:1px solid #ddd;font-weight:bold;}
-.works-content ul li .content{margin:10px 0px 0px 20px;}
+.works-content ul li .content{margin:10px 0px 0px 10px;}
 .works-content ul li .content p{height:25px;line-height:25px;margin:0px;}
-.works-content ul li .content ul{width:100%;overflow:hidden;}
-.works-content ul li .content ul li{list-style-type:disc;margin:5px 0px 5px 40px;}
