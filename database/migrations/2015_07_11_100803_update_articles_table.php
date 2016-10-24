@@ -14,6 +14,8 @@ class UpdateArticlesTable extends Migration {
 	{
 		Schema::table('articles', function($table) {
 		    $table->integer('cat_id');
+			$table->text('summary')->nullable();
+			$table->integer('views')->default('1');
 		});
 	}
 
@@ -26,6 +28,8 @@ class UpdateArticlesTable extends Migration {
 	{
 		Schema::table('articles', function($table) {
             $table->dropColumn('cat_id');
+			$table->dropColumn('summary');
+			$table->dropColumn('views');
         });
 	}
 
