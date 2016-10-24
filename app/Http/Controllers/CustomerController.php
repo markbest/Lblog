@@ -15,7 +15,7 @@ use Mail;
 class CustomerController extends Controller {
 
 	public function __construct(){
-		$this->middleware('login',array('except'=>array('login','register','logout')));
+		$this->middleware('login',array('except'=>array('work','login','register','logout')));
 	}
 	
 	public function index()
@@ -184,5 +184,9 @@ class CustomerController extends Controller {
 		}else{
 			return view('frontend.customer.setting');
 		}
+	}
+
+	public function work(){
+		return view('frontend.customer.work');
 	}
 }

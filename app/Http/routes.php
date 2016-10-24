@@ -15,17 +15,14 @@ Route::get('/', 'HomeController@index');
 
 Route::get('article/{id}', 'ArticleController@show');
 Route::get('category/{title}', 'CategoryController@show');
-Route::post('comment/store', 'CommentsController@store');
 
-Route::get('customer/login', 'CustomerController@login');
-Route::post('customer/login', 'CustomerController@login');
-Route::get('customer/register', 'CustomerController@register');
-Route::post('customer/register', 'CustomerController@register');
+Route::resource('customer/login', 'CustomerController@login');
+Route::resource('customer/register', 'CustomerController@register');
+Route::resource('customer/setting', 'CustomerController@setting');
 Route::get('customer/logout', 'CustomerController@logout');
 Route::get('customer/home', 'CustomerController@index');
-Route::resource('customer/setting', 'CustomerController@setting');
+Route::get('customer/works', 'CustomerController@work');
 Route::post('customer/upload', 'CustomerController@upload');
-Route::get('picture', 'PictureController@index');
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

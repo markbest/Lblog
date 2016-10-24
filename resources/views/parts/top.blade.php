@@ -13,11 +13,11 @@
 		<div class="collapse navbar-collapse" id="as-example-navbar-collapse-1">
 			@foreach($Categories as $cate)
 			<ul class="nav navbar-nav">
-				<li class="{{ active_class(if_uri_pattern(['category/'.$cate->title]), 'active', '') }}"><a href="{{ URL('category/'. $cate->title) }}">{{ $cate->title}}</a></li>
+				<li class="{{ active_class(if_uri_pattern(['category/'.$cate->title]), 'active', '') }}"><a href="{{ url('category/'. $cate->title) }}">{{ $cate->title}}</a></li>
 			</ul>
 			@endforeach
 			<ul class="nav navbar-nav navbar-right" style="margin-right:0px;">
-			    <li class="customer-login"><a href="{{ url('picture') }}">图片墙</a></li>
+				<li class="customer-login"><a href="{{ url('customer/works') }}">作品</a></li>
 			    @if (!checklogin())
 					<li class="customer-login"><a href="{{ url('customer/login') }}">登录</a></li>
 					<li class="customer-register"><a href="{{ url('customer/register') }}">注册</a></li>
