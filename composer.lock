@@ -364,12 +364,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremeamia/super_closure.git",
-                "reference": "2b338315d54ea37aa6c5e97f4d75a33ccf303503"
+                "reference": "378cdc081c75f3024ee862d73272a52bc7e5f6b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/jeremeamia/super_closure/2b338315d54ea37aa6c5e97f4d75a33ccf303503.zip",
-                "reference": "2b338315d54ea37aa6c5e97f4d75a33ccf303503",
+                "url": "https://packagist.phpcomposer.com/files/jeremeamia/super_closure/378cdc081c75f3024ee862d73272a52bc7e5f6b5.zip",
+                "reference": "378cdc081c75f3024ee862d73272a52bc7e5f6b5",
                 "shasum": ""
             },
             "require": {
@@ -414,7 +414,7 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2016-09-23 18:24:34"
+            "time": "2016-10-24 13:58:03"
         },
         {
             "name": "laravel/framework",
@@ -422,12 +422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "411aa8e0320ed8c67923477280cbd966eca08873"
+                "reference": "810311e3309ab0c1672af94a3ead1aab9200f330"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/411aa8e0320ed8c67923477280cbd966eca08873.zip",
-                "reference": "411aa8e0320ed8c67923477280cbd966eca08873",
+                "url": "https://packagist.phpcomposer.com/files/laravel/framework/810311e3309ab0c1672af94a3ead1aab9200f330.zip",
+                "reference": "810311e3309ab0c1672af94a3ead1aab9200f330",
                 "shasum": ""
             },
             "require": {
@@ -543,7 +543,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-13 14:59:22"
+            "time": "2016-10-24 13:08:51"
         },
         {
             "name": "league/flysystem",
@@ -1466,12 +1466,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "2d6c5cf3dccbb3d3e678d237ed84466a9a72faf3"
+                "reference": "6a0838a26d54eff153b825e1550c1f6fa05a0941"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/http-foundation/2d6c5cf3dccbb3d3e678d237ed84466a9a72faf3.zip",
-                "reference": "2d6c5cf3dccbb3d3e678d237ed84466a9a72faf3",
+                "url": "https://packagist.phpcomposer.com/files/symfony/http-foundation/6a0838a26d54eff153b825e1550c1f6fa05a0941.zip",
+                "reference": "6a0838a26d54eff153b825e1550c1f6fa05a0941",
                 "shasum": ""
             },
             "require": {
@@ -1514,7 +1514,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-14 11:10:27"
+            "time": "2016-10-24 14:36:35"
         },
         {
             "name": "symfony/http-kernel",
@@ -1522,12 +1522,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "b783209cdd35e5f038e45e4c4a82cd18c5dd9024"
+                "reference": "0954a18622f7a09afe872a8fcccc97045ab66c0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/http-kernel/b783209cdd35e5f038e45e4c4a82cd18c5dd9024.zip",
-                "reference": "b783209cdd35e5f038e45e4c4a82cd18c5dd9024",
+                "url": "https://packagist.phpcomposer.com/files/symfony/http-kernel/0954a18622f7a09afe872a8fcccc97045ab66c0e.zip",
+                "reference": "0954a18622f7a09afe872a8fcccc97045ab66c0e",
                 "shasum": ""
             },
             "require": {
@@ -1596,7 +1596,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-18 09:20:54"
+            "time": "2016-10-22 09:18:43"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2842,48 +2842,6 @@
             "time": "2015-10-02 06:51:40"
         },
         {
-            "name": "rcrowe/turbo",
-            "version": "0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rcrowe/Turbo.git",
-                "reference": "f870d6bbfb969a30841de67e62df2cfa3426c739"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/rcrowe/Turbo/f870d6bbfb969a30841de67e62df2cfa3426c739.zip",
-                "reference": "f870d6bbfb969a30841de67e62df2cfa3426c739",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Turbo": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rob Crowe",
-                    "email": "hello@vivalacrowe.com",
-                    "homepage": "http://vivalacrowe.com"
-                }
-            ],
-            "description": "Think turbolinks but for your PHP application. Powered by pjax.",
-            "keywords": [
-                "laravel",
-                "pjax",
-                "turbolinks"
-            ],
-            "time": "2013-06-06 16:44:35"
-        },
-        {
             "name": "sebastian/comparator",
             "version": "dev-master",
             "source": {
@@ -3261,12 +3219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "3d42c56f989688ad0790dcdc3c706d60748af6a6"
+                "reference": "d2cab32980d8de786744fabdec95991a0ebd7ea8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/yaml/3d42c56f989688ad0790dcdc3c706d60748af6a6.zip",
-                "reference": "3d42c56f989688ad0790dcdc3c706d60748af6a6",
+                "url": "https://packagist.phpcomposer.com/files/symfony/yaml/d2cab32980d8de786744fabdec95991a0ebd7ea8.zip",
+                "reference": "d2cab32980d8de786744fabdec95991a0ebd7ea8",
                 "shasum": ""
             },
             "require": {
@@ -3308,7 +3266,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-21 21:10:51"
+            "time": "2016-10-24 18:44:12"
         },
         {
             "name": "webmozart/assert",

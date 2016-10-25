@@ -10,6 +10,7 @@
                     <h1>Laravel</h1>
                     <div class="content">
                         <p><strong>1、Laravel_Blog: </strong>基于Laravel 5.1开发的轻量级的博客程序( <a target="_blank" href="https://github.com/markbest/laravel_blog">https://github.com/markbest/laravel_blog</a>)</p>
+                        <p><strong>2、Laravel_Manage: </strong>基于Laravel 5.3开发的轻量级的文件管理系统( <a target="_blank" href="https://github.com/markbest/laravel_manage">https://github.com/markbest/laravel_manage</a>)</p>
                     </div>
                 </li>
                 <li>
