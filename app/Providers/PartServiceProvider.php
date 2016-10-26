@@ -44,7 +44,7 @@ class PartServiceProvider extends ServiceProvider {
 				$NewestArticles = \App\Article::latest()->take(10)->select('id','title')->get();
 				Cache::put('latest_articles', $NewestArticles, getConfig('web_cache_time'));
 			}
-			
+
 			if(Cache::has('mostview_articles')){
 				$MostviewArticles = Cache::get('mostview_articles');
 			}else{

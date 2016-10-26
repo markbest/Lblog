@@ -9,12 +9,13 @@
 - [yuanchao/laravel-5-markdown-editor](https://github.com/yccphp/laravel-5-markdown-editor)
 - [hieu-le/active](https://github.com/letrunghieu/active)
 - [spatie/laravel-pjax](https://github.com/spatie/laravel-pjax)
+- [predis/predis](https://github.com/nrk/predis)
 
 # 博客特色
 - 简单的文章管理
 - 简单的文章分类管理
 - 前台客户注册以及客户中心管理
-- 后台简单的图片墙管理
+- 使用Redis管理博客的缓存
 
 #安装使用
 - 从[github](https://github.com/markbest/laravel_blog)上下载源代码
