@@ -13,7 +13,7 @@
 		<div class="collapse navbar-collapse" id="as-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="{{ active_class(if_uri_pattern(['/']), 'active', '') }}">
-					<a href="{{ url('') }}"><i class="fa fa-home"></i> 首页</a>
+					<a href="{{ url('') }}">首页</a>
 				</li>
 				@foreach($Categories as $cate)
 				<li class="{{ active_class(if_uri_pattern(['category/'.$cate['title']]), 'active', '') }}">

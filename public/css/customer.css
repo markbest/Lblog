@@ -13,6 +13,7 @@ body{font-family: Helvetica, Arial, sans-serif;}
 .top_content .navbar-default {background-color:#3d4450;border:0px;}
 .top_content .navbar-default .container-fluid {padding-left:0px;padding-right:0px;}
 .top_content .navbar-default .navbar-nav > li > a{color:#ffffff;}
+.top_content .navbar-default .navbar-nav > li > a:focus{background-color:#282e39;color:#ffffff;}
 .top_content .navbar-default .navbar-nav > li > a:hover{background-color:#282e39;color:#ffffff;}
 .navbar-default .navbar-nav > li.open > a{background-color:#282e39;color:#ffffff;}
 .navbar-default .navbar-nav > li.open > a:hover{background-color:#282e39;color:#ffffff;}
@@ -20,6 +21,23 @@ body{font-family: Helvetica, Arial, sans-serif;}
 .navbar-default .navbar-nav > li.active > a:hover{background-color:#d9534f;color:#ffffff;}
 @media (max-width: 768px){
 	.top_content .navbar-default .navbar-nav > li > a{padding:10px;margin-top:0px;border-radius:3px;}
+}
+.top_content .dropdown-menu {
+	padding:0px;
+}
+.top_content .dropdown-menu > li > a {
+	display: block;
+	padding: 8px 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 1.42857143;
+	color: #333333;
+	white-space: nowrap;
+}
+.top_content .dropdown-menu > li > a:hover,
+.top_content .dropdown-menu > li > a:focus {
+	background-color: #d9534f;
+	color:#ffffff;
 }
 
 /* 文章显示  */
