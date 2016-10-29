@@ -1,6 +1,6 @@
 @extends('_layouts.2columns-right')
 @section('title')
-	{{ $category->title }} - mark-here.com
+	{{ $title }} - mark-here.com
 @endsection
 @section('content')
 <div id="category_article_list">

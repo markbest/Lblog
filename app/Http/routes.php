@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('article/{id}', 'ArticleController@show');
 Route::get('category/{title}', 'CategoryController@show');
+Route::get('search', 'SearchController@show');
 
 Route::resource('customer/login', 'CustomerController@login');
 Route::resource('customer/register', 'CustomerController@register');
