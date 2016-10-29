@@ -6,7 +6,7 @@
 <div id="category_article_list">
 	@foreach ($articles as $article)
 	<div class="list_content well">
-		<i class="fa fa-bookmark article-stick visible-md visible-lg"></i>
+		<i class="fa fa-bookmark fa-3x article-stick visible-md visible-lg"></i>
 		<div class="data-article">
 			<span class="month">{{ date('m', strtotime($article->created_at)) }}月</span>
 			<span class="day">{{ date('d', strtotime($article->created_at)) }}</span>
@@ -18,10 +18,10 @@
 		</div>
 		<div class="tag-article">
 			@foreach( getArticleTagsList($article->slug) as $tag)
-				<span class="label">
-					<a href="{{ URL('article/'.$article->id) }}">{{ $tag }}</a>
-				</span>
+			<span class="label"><i class="fa fa-tags"></i> {{ $tag }}</span>
 			@endforeach
+			<span class="label"><i class="fa fa-user"></i> mark</span>
+			<span class="label"><i class="fa fa-eye"></i> {{ $article->views }}</span>
 		</div>
 		<div class="short_content">
 			<p>{{ $article->summary }}</p>

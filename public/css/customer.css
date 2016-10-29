@@ -70,14 +70,15 @@ body{font-family: Helvetica, Arial, sans-serif;}
 .tag-article {
 	text-align: center;
 	line-height: 24px;
-	margin: 20px;
+	margin:10px 20px;
 }
 .tag-article span{cursor:pointer;}
 .tag-article .label{
-	margin-right:5px;
+	margin:5px 0px;
 	font-size:90%;
 	background-color:#3d4450;
 	padding:5px 8px;
+	display:inline-block;
 }
 .tag-article .label:hover {
 	background-color: #d9534f;

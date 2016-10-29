@@ -33,7 +33,6 @@ class CategoryController  extends Controller {
 		$category = new Category;
 		$category->title = Input::get('title');
 		$category->parent_id = Input::get('category');
-		$category->sort = Input::get('sort');
 
 		if ($category->save()) {
 			Cache::forget('all_categories');
