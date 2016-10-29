@@ -1,11 +1,17 @@
-@extends('_layouts.1colums')
+@extends('_layouts.1column')
 @section('title')
     作品 - mark-here.com
 @endsection
 @section('content')
     <div class="col-lg-12">
         <div class="works-content">
-            <ul>
+            <div class="view">
+                <ul class="breadcrumb">
+                    <li><i class="fa fa-home fa-fw"></i> <a href="{{ url('/') }}">主页</a>
+                    <li class="active">作品</li>
+                </ul>
+            </div>
+            <ul class="works-list">
                 <li>
                     <h1>Laravel</h1>
                     <div class="content">

@@ -28,7 +28,7 @@
 					<thead>
 						<tr>
 						     <th class="col-sm-1">#</th>
-							 <th class="col-sm-5">标题</th>
+							 <th class="col-sm-4">标题</th>
 							 <th class="col-sm-2">标签</th>
 							 <th class="center col-sm-1">分类</th>
 							 <th class="center col-sm-1">创建时间</th>

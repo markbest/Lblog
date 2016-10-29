@@ -7,15 +7,29 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand logo" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" height="80px" /></a>
+			<a class="navbar-brand logo" title="{{ getConfig('web_title') }}" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" /></a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="as-example-navbar-collapse-1">
-			@foreach($Categories as $cate)
 			<ul class="nav navbar-nav">
-				<li class="{{ active_class(if_uri_pattern(['category/'.$cate->title]), 'active', '') }}"><a href="{{ url('category/'. $cate->title) }}">{{ $cate->title}}</a></li>
+				<li class="{{ active_class(if_uri_pattern(['/']), 'active', '') }}">
+					<a href="{{ url('') }}"><i class="fa fa-home"></i> 首页</a>
+				</li>
+				@foreach($Categories as $cate)
+				<li class="{{ active_class(if_uri_pattern(['category/'.$cate['title']]), 'active', '') }}">
+					@if(count($cate['child']))
+						<a data-toggle="dropdown" href="#">{{ $cate['title'] }} <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							@foreach($cate['child'] as $child)
+							<li><a href="{{ url('category/'. $child['title']) }}">{{ $child['title'] }}</a></li>
+							@endforeach
+						</ul>
+					@else
+						<a href="{{ url('category/'. $cate['title']) }}">{{ $cate['title'] }}</a>
+					@endif
+				</li>
+				@endforeach
 			</ul>
-			@endforeach
 			<ul class="nav navbar-nav navbar-right" style="margin-right:0px;">
 				<li class="customer-login"><a href="{{ url('customer/works') }}">作品</a></li>
 			    @if (!checklogin())

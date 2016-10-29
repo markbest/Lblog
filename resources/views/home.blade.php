@@ -1,33 +1,39 @@
-@extends('_layouts.default')
+@extends('_layouts.2columns-right')
 @section('title')
 	{{ getConfig('web_title') }}
 @endsection
 @section('content')
 	<div id="category_article_list">
   	   @foreach ($articles as $article)
-  	    <div class="list_content">
-  	        <div class="title">
-				<a href="{{ URL('article/'.$article->id) }}">
-				    <h4>{{ $article->title }}</h4>
-				</a>
+  	    <div class="list_content well">
+			<i class="fa fa-bookmark fa-3x article-stick visible-md visible-lg"></i>
+			<div class="data-article">
+				<span class="month">{{ date('m', strtotime($article->created_at)) }}月</span>
+				<span class="day">{{ date('d', strtotime($article->created_at)) }}</span>
 			</div>
-			<div class="short_content">
-				<p>{{ $article->summary }}...</p>
+  	        <div class="title-article">
+				<h1>
+					<a title="{{ $article->title }}" href="{{ URL('article/'.$article->id) }}">{{ $article->title }}</a>
+				</h1>
 			</div>
+			<div class="tag-article">
+				@foreach( getArticleTagsList($article->slug) as $tag)
+				<span class="label"><i class="fa fa-tags"></i> {{ $tag }}</span>
+				@endforeach
+				<span class="label"><i class="fa fa-user"></i> mark</span>
+				<span class="label"><i class="fa fa-eye"></i> {{ $article->views }}</span>
+			</div>
+			<div class="short_content">{{ $article->summary }}</div>
 			<div class="article_addition">
-			    <span>{{ shortDate($article->created_at) }}</span>
-			    <span class="views_count"><a href="{{ URL('article/'.$article->id) }}">阅读</a>({{ $article->views}})</span>
+				<a class="btn btn-danger pull-right read-more" href="{{ URL('article/'.$article->id) }}" title="详细阅读 {{ $article->title }}">
+					阅读全文 <span class="badge">{{ $article->views }}</span>
+				</a>
 			</div>
   	    </div>
   	   @endforeach
-  	   
-		<div class="front_page page_html">
-		    <div class="col-sm-6">
-				<div class="pages_title">
-		            {{ getPageHtml($articles->perPage(),$articles->currentPage(),$articles->count(),$articles->total()) }}
-		        </div>
-		    </div>
-		    <div class="col-sm-6">
+
+		<div class="front_page">
+		    <div class="col-sm-12">
 		    	<div class="pages_content">
 		    		{!! $articles->render() !!}
 		    	</div>

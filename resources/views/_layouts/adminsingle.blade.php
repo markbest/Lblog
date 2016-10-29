@@ -8,15 +8,15 @@
 
 	<link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/admin/admin.css') }}" rel="stylesheet">
-	<link href="{{ asset('/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/admin/admin.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	<script src="{{ asset('/js/jquery-1.9.1.min.js') }}" type="text/javascript"></script>
 </head>
-<body class="admin_body">
+<body class="admin_single_body">
 	@yield('content')
 
 	<!-- Scripts -->

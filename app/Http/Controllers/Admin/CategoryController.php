@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Cache;
 
 use App\Category;
+use Illuminate\Support\Facades\DB;
 
 use Redirect, Input, Auth;
 
@@ -14,7 +15,8 @@ class CategoryController  extends Controller {
 
 	public function index()
 	{
-		return view('admin.category.index')->withCategory(Category::all());
+		$category = Category::where('parent_id','0')->orderBy('sort','asc')->get();
+		return view('admin.category.index')->withCategory($category);
 	}
 
 	public function create()
@@ -30,6 +32,8 @@ class CategoryController  extends Controller {
 
 		$category = new Category;
 		$category->title = Input::get('title');
+		$category->parent_id = Input::get('category');
+		$category->sort = Input::get('sort');
 
 		if ($category->save()) {
 			Cache::forget('all_categories');
@@ -47,11 +51,13 @@ class CategoryController  extends Controller {
 	public function update(Request $request,$id)
 	{
 		$this->validate($request, [
-			'title' => 'required'
+			'title' => 'required',
 		]);
 
 		$category = Category::find($id);
 		$category->title = Input::get('title');
+		$category->parent_id = Input::get('category');
+		$category->sort = Input::get('sort');
 
 		if ($category->save()) {
 			Cache::forget('all_categories');

@@ -1,44 +1,28 @@
-@extends('_layouts.default')
+@extends('_layouts.2columns-right')
 @section('title')
    {{ $article->title }} - mark-here.com
 @endsection
 @section('content')
-<div class="view">
-	<ul class="breadcrumb">
-		<li><a href="{{ url('/') }}">主页</a>
-		<li><a href="{{ URL('category/'.$article->category_name)}}">{{ $article->category_name }}</a></li>
-		<li class="active">{{ $article->title }}</li>
-	</ul>
-</div>
-<div class="article_title">
-	<div class="col-sm-8"><h3>{{ $article->title }}</h3></div>
-	<div class="col-sm-4">
-		<div class="addition_info">
-			<div class="other">
-				<span class="date">{{ shortDate($article->created_at) }}</span>
-				<span class="views_count">{{ $article->views}}人阅读</span>
-			</div>
-		</div>
+<div class="article-content">
+	<div class="view">
+		<ul class="breadcrumb">
+			<li><i class="fa fa-home fa-fw"></i> <a href="{{ url('/') }}">主页</a>
+			<li><a href="{{ URL('category/'.$article->category_name)}}">{{ $article->category_name }}</a></li>
+			<li class="active">{{ $article->title }}</li>
+		</ul>
+	</div>
+	<div class="title-article">
+		<h1>
+			<a title="{{ $article->title }}" href="{{ URL('article/'.$article->id) }}">{{ $article->title }}</a>
+		</h1>
+	</div>
+	<div class="tag-article">
+		<span class="label"><i class="fa fa-tags"></i> {{ date('m-d', strtotime($article->created_at)) }}</span>
+		<span class="label"><i class="fa fa-user"></i> mark</span>
+		<span class="label"><i class="fa fa-eye"></i> {{ $article->views }}</span>
+	</div>
+	<div id="content">
+		<p>{!! $article->body !!}</p>
 	</div>
 </div>
-<div id="content" class="article_content" style="padding: 5px;">
-	<p>{!! $article->body !!}</p>
-</div>
-
-<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="{{ $article->id }}" data-title="{{ $article->title }}" data-url="{{ asset(Request::getRequestUri()) }}"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-	var duoshuoQuery = {short_name:"mark-here"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0]
-		|| document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-</script>
-<!-- 多说公共JS代码 end -->
 @endsection

@@ -21,7 +21,7 @@ class AdminHomeController extends Controller {
 		          ->join('categories', 'articles.cat_id', '=', 'categories.id')
 		          ->select('articles.*', 'categories.title as category_name')
 		          ->orderBy('articles.created_at','desc')
-				  ->paginate('24');
+				  ->paginate('30');
 		return view('admin.article.index')->withArticles($articles);
 	}
 	

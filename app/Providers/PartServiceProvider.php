@@ -31,7 +31,7 @@ class PartServiceProvider extends ServiceProvider {
 			if(Cache::has('all_categories')){
 				$Categories = Cache::get('all_categories');
 			}else{
-				$Categories = \App\Category::all();
+				$Categories = getAllCategoryList();
 				Cache::forever('all_categories', $Categories);
 			}
 			$view->with(compact('Categories'));
@@ -41,14 +41,14 @@ class PartServiceProvider extends ServiceProvider {
 			if(Cache::has('latest_articles')){
 				$NewestArticles = Cache::get('latest_articles');
 			}else{
-				$NewestArticles = \App\Article::latest()->take(10)->select('id','title')->get();
+				$NewestArticles = \App\Article::latest()->take(8)->select('id','title')->get();
 				Cache::put('latest_articles', $NewestArticles, getConfig('web_cache_time'));
 			}
 
 			if(Cache::has('mostview_articles')){
 				$MostviewArticles = Cache::get('mostview_articles');
 			}else{
-				$MostviewArticles = \App\Article::orderBy('views','desc')->take(10)->select('id','title','views')->get();
+				$MostviewArticles = \App\Article::orderBy('views','desc')->take(8)->select('id','title','views')->get();
 				Cache::put('mostview_articles', $MostviewArticles, getConfig('web_cache_time'));
 			}
 			$view->with(compact('NewestArticles','MostviewArticles'));

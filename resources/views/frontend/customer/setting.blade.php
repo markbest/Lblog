@@ -1,4 +1,4 @@
-@extends('_layouts.1colums')
+@extends('_layouts.1column')
 @section('content')
 <script type="text/javascript" src="{{ asset('/js/ajaxfileupload.js') }}"></script>
 <script language="javascript">

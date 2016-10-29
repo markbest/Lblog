@@ -8,5 +8,4 @@ class Category extends Model {
     {
 		return $this->hasMany('App\Article','cat_id','id')->orderBy('created_at','desc');
 	}
-
 }

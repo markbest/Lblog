@@ -1,4 +1,4 @@
-@extends('_layouts.1colums')
+@extends('_layouts.1column')
 @section('content')
 <div class="col-lg-12 register_customer">
     <div class="col-lg-12">
