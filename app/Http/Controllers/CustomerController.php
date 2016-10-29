@@ -88,7 +88,7 @@ class CustomerController extends Controller {
 						"token" => $customer->remember_token
 					];
 					Cookie::queue("TOKEN", json_encode($user),60);
-					return Redirect::action("CustomerController@login", ["path" => $request->fullUrl()]);
+					return Redirect::to('customer/home');
 				}else{
 					return Redirect::back()->withInput()->withErrors('用户名或密码错误，登录失败');
 				}
