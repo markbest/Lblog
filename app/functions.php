@@ -3,10 +3,7 @@ use App\Customer;
 use App\Article;
 use App\Config;
 use App\Category;
-
-function shortDate($date){
-	return date('Y-m-d',strtotime($date));
-}
+use Illuminate\Support\Facades\DB;
 
 function checklogin()
 {
@@ -146,5 +143,40 @@ function getAllCategoryList(){
 		$index++;
 	}
 	return $result;
+}
+
+function getArticleWeight($article_id){
+	$total_views = DB::table('articles')->sum('views');
+	$article = Article::find($article_id);
+	return ($article->views / $total_views) * 100;
+}
+
+function getAllTagsJson()
+{
+	$result = '';
+	$tags = Article::latest()->get();
+	foreach($tags as $tag){
+		$data = explode('、',$tag->slug);
+		if(count($data) > 0){
+			foreach($data as $value){
+				$result .= '{';
+				$data = array();
+				$data[] = '"text":"'.$value.'"';
+				$data[] = '"weight":'.getArticleWeight($tag->id);
+				$data[] = '"link":"'.URL('article/'.$tag->id).'"';
+				$result .= implode(',', $data);
+				$result .= '},';
+			}
+		}else{
+			$result .= '{';
+			$data = array();
+			$data[] = '"text": '.$tag->slug;
+			$data[] = '"weight": '.getArticleWeight($tag->id);
+			$data[] = '"link":"'.URL('article/'.$tag->id).'"';
+			$result .= implode(',', $data);
+			$result .= '},';
+		}
+	}
+	return '[' . substr($result,0,strlen($result) - 1) . ']';
 }
 

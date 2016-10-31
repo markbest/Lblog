@@ -31,3 +31,16 @@
   	    @endforeach
     </ul>
 </div>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><i class="fa fa-tags"></i> 热门标签</div>
+	<div class="tags-list-content" style="width:100%;height:320px;"></div>
+</div>
+
+<script src="{{ asset('js/jqcloud-1.0.4.js') }}"></script>
+<script>
+	var word_list = '{!! getAllTagsJson() !!}';
+	$(function() {
+		$(".tags-list-content").jQCloud(word_list);
+	});
+</script>
