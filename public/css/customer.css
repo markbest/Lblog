@@ -117,11 +117,12 @@ body{font-family: Helvetica, Arial, sans-serif;}
 	line-height:30px;
 }
 .article_addition a{font-size:12px;}
-.read-more .badge{
+.article_addition a.read-more .badge{
 	background-color: white;
 	color: #d9534f;
 	padding: 2px 5px;
 	margin-left: 3px;
+	top: 1px;
 }
 .short_content{
 	color: #666666;
@@ -191,10 +192,12 @@ body{font-family: Helvetica, Arial, sans-serif;}
 #scrollUp{background:url(../images/top.png);cursor:pointer;position:fixed;z-index:100;bottom:20px;right:20px;opacity:1;display:none;width:38px;height:38px;}
 
 /* 分页显示  */
-.front_page{margin-top:-40px;}
-.front_page .col-sm-6{padding:0px;}
+.front_page{margin-top:-50px;}
+.front_page .col-sm-4,.front_page .col-sm-8{padding:0px;}
 .pages_content{text-align:right;padding:0px;}
 .pages_content .pagination{margin:0px;}
+.pages_content .pagination li{margin:5px 0px;display:inline-block;}
+.front_page .pages_title{height:35px;line-height:35px;margin:5px 0px;display:inline-block;}
 
 /* 用户注册 */
 .login_single_body{background-color:#3d4450;width:100%;height:100%;}

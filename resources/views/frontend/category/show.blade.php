@@ -37,12 +37,12 @@
   	@endforeach
 
 	<div class="front_page page_html">
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<div class="pages_title">
 				{{ getPageHtml($articles->perPage(),$articles->currentPage(),$articles->count(),$articles->total()) }}
 			</div>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-8">
 			<div class="pages_content">
 				{!! $articles->render() !!}
 			</div>
