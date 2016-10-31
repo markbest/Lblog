@@ -17,9 +17,11 @@
 			</h1>
 		</div>
 		<div class="tag-article">
-			@foreach( getArticleTagsList($article->slug) as $tag)
-			<span class="label"><i class="fa fa-tags"></i> {{ $tag }}</span>
-			@endforeach
+			@if($article->slug)
+				@foreach( getArticleTagsList($article->slug) as $tag)
+				<span class="label"><i class="fa fa-tags"></i> {{ $tag }}</span>
+				@endforeach
+			@endif
 			<span class="label"><i class="fa fa-user"></i> mark</span>
 			<span class="label"><i class="fa fa-eye"></i> {{ $article->views }}</span>
 		</div>
@@ -33,8 +35,14 @@
 		</div>
 	</div>
   	@endforeach
+
 	<div class="front_page page_html">
-		<div class="col-sm-12">
+		<div class="col-sm-6">
+			<div class="pages_title">
+				{{ getPageHtml($articles->perPage(),$articles->currentPage(),$articles->count(),$articles->total()) }}
+			</div>
+		</div>
+		<div class="col-sm-6">
 			<div class="pages_content">
 				{!! $articles->render() !!}
 			</div>

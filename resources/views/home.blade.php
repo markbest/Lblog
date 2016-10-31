@@ -32,12 +32,17 @@
   	    </div>
   	   @endforeach
 
-		<div class="front_page">
-		    <div class="col-sm-12">
-		    	<div class="pages_content">
-		    		{!! $articles->render() !!}
-		    	</div>
-		    </div>
-		</div>
+	   	<div class="front_page">
+		   	<div class="col-sm-6">
+			   	<div class="pages_title">
+				   	{{ getPageHtml($articles->perPage(),$articles->currentPage(),$articles->count(),$articles->total()) }}
+			   	</div>
+		   	</div>
+		   	<div class="col-sm-6">
+			   	<div class="pages_content">
+				   	{!! $articles->render() !!}
+			   	</div>
+		   	</div>
+	   	</div>
 	</div>
 @endsection

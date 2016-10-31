@@ -96,7 +96,7 @@ function getPageHtml($perpage,$current_page,$count,$total)
 {
 	$start_page = $perpage * ($current_page - 1) + 1;
 	$end_page = $perpage * ($current_page - 1) + $count;
-	$page_html = 'Showing '.$start_page.' to '.$end_page.' of '.$total.' entries';
+	$page_html = '第 '.$start_page.' 到 '.$end_page.' 共 '.$total.' 条';
 	return $page_html;
 }
 

@@ -191,8 +191,8 @@ body{font-family: Helvetica, Arial, sans-serif;}
 #scrollUp{background:url(../images/top.png);cursor:pointer;position:fixed;z-index:100;bottom:20px;right:20px;opacity:1;display:none;width:38px;height:38px;}
 
 /* 分页显示  */
-.front_page{margin-top:-50px;}
-.front_page .col-sm-12{padding:0px;}
+.front_page{margin-top:-40px;}
+.front_page .col-sm-6{padding:0px;}
 .pages_content{text-align:right;padding:0px;}
 .pages_content .pagination{margin:0px;}
 
