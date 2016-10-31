@@ -16,7 +16,7 @@
 <body class="admin_body">
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="{{ url('/') }}">Mark的私人博客</a>
+			<a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" /></a>
 		</div>
 
 		<ul class="nav navbar-top-links navbar-right">
