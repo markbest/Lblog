@@ -15,6 +15,11 @@ class SearchController extends Controller {
 			      ->where('articles.title','like','%'.$keywords.'%')
 			      ->orderBy('articles.created_at','desc')
 			      ->paginate('6');
+		$page = Input::get('page') ? Input::get('page') : 1;
+		$articles = $articles->appends(array(
+			's' => $keywords,
+			'page' => $page
+		));
 		return view('frontend.category.show')->withArticles($articles)->withTitle('搜索：'.$keywords);
 	}
 
