@@ -145,38 +145,25 @@ function getAllCategoryList(){
 	return $result;
 }
 
-function getArticleWeight($article_id){
-	$total_views = DB::table('articles')->sum('views');
-	$article = Article::find($article_id);
-	return ($article->views / $total_views) * 100;
-}
-
-function getAllTagsJson()
+function getAllTagsList()
 {
-	$result = '';
-	$tags = Article::latest()->get();
+	$tags = Article::orderBy('views','desc')->get();
+	$all_tags = array();
+	$index = 0;
 	foreach($tags as $tag){
 		$data = explode('、',$tag->slug);
 		if(count($data) > 0){
 			foreach($data as $value){
-				$result .= '{';
-				$data = array();
-				$data[] = '"text":"'.$value.'"';
-				$data[] = '"weight":'.getArticleWeight($tag->id);
-				$data[] = '"link":"'.URL('article/'.$tag->id).'"';
-				$result .= implode(',', $data);
-				$result .= '},';
+				$all_tags[$index]['id'] = $tag->id;
+				$all_tags[$index]['name'] = $value;
+				$index++;
 			}
 		}else{
-			$result .= '{';
-			$data = array();
-			$data[] = '"text": '.$tag->slug;
-			$data[] = '"weight": '.getArticleWeight($tag->id);
-			$data[] = '"link":"'.URL('article/'.$tag->id).'"';
-			$result .= implode(',', $data);
-			$result .= '},';
+			$all_tags[$index]['id'] = $tag->id;
+			$all_tags[$index]['name'] = $tag->slug;
 		}
+		$index++;
 	}
-	return '[' . substr($result,0,strlen($result) - 1) . ']';
+	return $all_tags;
 }
 

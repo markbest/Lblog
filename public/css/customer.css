@@ -253,41 +253,17 @@ body{font-family: Helvetica, Arial, sans-serif;}
 .works-content ul.works-list li .content p{height:25px;line-height:25px;margin:0px;}
 
 /* 标签云 */
-div.jqcloud {
-	font-family: "Helvetica", "Arial", sans-serif;
-	font-size: 10px;
-	line-height: normal;
-}
-div.jqcloud a {
-	font-size: inherit;
-	text-decoration: none;
-}
-div.jqcloud span.w10 { font-size: 550%; }
-div.jqcloud span.w9 { font-size: 500%; }
-div.jqcloud span.w8 { font-size: 450%; }
-div.jqcloud span.w7 { font-size: 400%; }
-div.jqcloud span.w6 { font-size: 350%; }
-div.jqcloud span.w5 { font-size: 300%; }
-div.jqcloud span.w4 { font-size: 250%; }
-div.jqcloud span.w3 { font-size: 200%; }
-div.jqcloud span.w2 { font-size: 150%; }
-div.jqcloud span.w1 { font-size: 100%; }
-div.jqcloud { color: #09f; }
-div.jqcloud a { color: inherit; }
-div.jqcloud a:hover { color: #0df; }
-div.jqcloud a:hover { color: #d9534f; }
-div.jqcloud span.w10 { color: #a1184b; }
-div.jqcloud span.w9 { color: #0cf; }
-div.jqcloud span.w8 { color: #0cf; }
-div.jqcloud span.w7 { color: #d75b9e; }
-div.jqcloud span.w6 { color: #4134ed; }
-div.jqcloud span.w5 { color: #90a0dd; }
-div.jqcloud span.w4 { color: #90c5f0; }
-div.jqcloud span.w3 { color: #357082; }
-div.jqcloud span.w2 { color: #99ccee; }
-div.jqcloud span.w1 { color: #11e98a; }
-div.jqcloud {
-	overflow: hidden;
-	position: relative;
-}
-div.jqcloud span { padding: 0; }
+.tags-list-content{padding:10px;}
+.tags-list-content a{text-decoration:underline;padding:0px;display:inline-block;white-space:nowrap;}
+a.size1{font-size:25px;padding:0px;color:#804D40;}
+a.size1:hover{color:#E13728;}
+a.size2{padding:0px;font-size:20px;color:#B9251A;}
+a.size2:hover{color:#E13728;}
+a.size3{padding:0px;font-size:22px;color:#C4876A;}
+a.size3:hover{color:#E13728;}
+a.size4{padding:0px;font-size:14px;color:#B46A47;}
+a.size4:hover{color:#E13728;}
+a.size5{padding:0px;font-size:24px;color:#E13728;}
+a.size5:hover{color:#B46A47;}
+a.size6{padding:0px;font-size:12px;color:#77625E}
+a.size6:hover{color:#E13728;}

@@ -34,13 +34,22 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading"><i class="fa fa-tags"></i> 热门标签</div>
-	<div class="tags-list-content" style="width:100%;height:320px;"></div>
+	<div class="tags-list-content">
+		@foreach(getAllTagsList() as $tag)
+		<a href="{{ URL('article/'.$tag['id']) }}">{{ $tag['name'] }}</a>
+		@endforeach
+	</div>
 </div>
 
-<script src="{{ asset('js/jqcloud-1.0.4.js') }}"></script>
 <script>
-	var word_list = '{!! getAllTagsJson() !!}';
-	$(function() {
-		$(".tags-list-content").jQCloud(word_list);
+	$(document).ready(function(){
+		/*多彩tag*/
+		var tags_a = $(".tags-list-content").find("a");
+		tags_a.each(function(){
+			var x = 9;
+			var y = 0;
+			var rand = parseInt(Math.random() * (x - y + 1) + y);
+			$(this).addClass("size"+rand);
+		});
 	});
 </script>
