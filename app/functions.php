@@ -167,3 +167,13 @@ function getAllTagsList()
 	return $all_tags;
 }
 
+function getFileSizeShow($size){
+	if($size < 1024){
+		return $size.'B';
+	}else if($size < 1024 * 1024){
+		return (round($size/1024, 2)).'KB';
+	}else if($size < 1024 * 1024 * 1024){
+		return (round($size/(1024 * 1024), 2)).'MB';
+	}
+}
+

@@ -25,7 +25,11 @@
 							@endforeach
 						</ul>
 					@else
+						@if($cate['title'] == '资料下载')
+						<a href="{{ url('file/list') }}">{{ $cate['title'] }}</a>
+						@else
 						<a href="{{ url('category/'. $cate['title']) }}">{{ $cate['title'] }}</a>
+						@endif
 					@endif
 				</li>
 				@endforeach

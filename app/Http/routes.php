@@ -16,6 +16,8 @@ Route::get('/', 'HomeController@index');
 Route::get('article/{id}', 'ArticleController@show');
 Route::get('category/{title}', 'CategoryController@show');
 Route::get('search', 'SearchController@show');
+Route::get('file/list', 'FileController@show');
+Route::get('file/download/{id}', 'FileController@download');
 
 Route::resource('customer/login', 'CustomerController@login');
 Route::resource('customer/register', 'CustomerController@register');
@@ -36,7 +38,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('upload', 'AdminHomeController@upload');
     Route::resource('article', 'ArticleController');
 	Route::resource('category', 'CategoryController');
-	Route::resource('comments', 'CommentsController');
+	Route::resource('file', 'FileController');
+	Route::resource('file/upload', 'FileController@upload');
 	Route::resource('customer', 'CustomerController');
 	Route::resource('picture', 'PictureController');
 	Route::resource('picture/upload', 'PictureController@upload');

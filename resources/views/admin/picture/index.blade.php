@@ -1,6 +1,5 @@
 @extends('app')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/uploader.css') }}" rel="stylesheet" />
 <div class="row">
     <div class="col-lg-12">
 		<div class="row">
@@ -52,7 +51,7 @@
 					</div>
 				  </div>
 				</div>
-	
+				<link rel="stylesheet" href="{{ asset('css/uploader.css') }}" />
 				<script type="text/javascript" src="{{ asset('js/demo-preview.js') }}"></script>
 				<script type="text/javascript" src="{{ asset('js/dmuploader.js') }}"></script>
 				<script type="text/javascript">

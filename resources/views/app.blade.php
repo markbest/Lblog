@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Mark的私人博客</title>
+	<title>{{ getConfig('web_title') }}</title>
 
 	<link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
@@ -40,6 +40,9 @@
 					</li>
 					<li class="{{ active_class(if_uri_pattern(['admin/category*']), 'active', '') }}">
 						<a href="{{ URL('admin/category') }}"><i class="fa fa-dashboard fa-fw"></i> 分类管理</a>
+					</li>
+					<li class="{{ active_class(if_uri_pattern(['admin/file*']), 'active', '') }}">
+						<a href="{{ URL('admin/file') }}"><i class="fa fa-briefcase fa-fw"></i> 资料管理</a>
 					</li>
 					<li class="{{ active_class(if_uri_pattern(['admin/customer*']), 'active', '') }}">
 						<a href="{{ url('/admin/customer' )}}"><i class="fa fa-user fa-fw"></i> 用户管理</a>
