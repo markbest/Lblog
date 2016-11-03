@@ -35,7 +35,7 @@
                                 <td>{{ $file->id }}</td>
                                 <td>{{ $file->title }}</td>
                                 <td>{{ $file->name }}</td>
-                                <td>{{ $file->size }}</td>
+                                <td>{{ getFileSizeShow($file->size) }}</td>
                                 <td>{{ $file->category_name }}</td>
                                 <td>{{ $file->type }}</td>
                                 <td>{{ $file->created_at }}</td>
