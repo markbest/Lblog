@@ -16,6 +16,7 @@
 - 简单的文章分类管理
 - 前台客户注册以及客户中心管理
 - 使用Redis管理博客的缓存
+- 资料后台上传、前台下载
 
 #安装使用
 - 从[github](https://github.com/markbest/laravel_blog)上下载源代码
