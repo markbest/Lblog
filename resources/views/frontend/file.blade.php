@@ -1,6 +1,6 @@
 @extends('_layouts.2columns-right')
 @section('title')
-    {{ $title }} - mark-here.com
+    资料下载 - mark-here.com
 @endsection
 @section('content')
     <div class="file-list-container">

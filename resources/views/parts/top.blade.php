@@ -16,6 +16,7 @@
 					<a href="{{ url('') }}">首页</a>
 				</li>
 				@foreach($Categories as $cate)
+				@if($cate['title'] != '资料下载')
 				<li class="{{ active_class(if_uri_pattern(['category/'.$cate['title']]), 'active', '') }}">
 					@if(count($cate['child']))
 						<a data-toggle="dropdown" href="#">{{ $cate['title'] }} <span class="caret"></span></a>
@@ -25,14 +26,14 @@
 							@endforeach
 						</ul>
 					@else
-						@if($cate['title'] == '资料下载')
-						<a href="{{ url('file/list') }}">{{ $cate['title'] }}</a>
-						@else
 						<a href="{{ url('category/'. $cate['title']) }}">{{ $cate['title'] }}</a>
-						@endif
 					@endif
 				</li>
+				@endif
 				@endforeach
+				<li class="{{ active_class(if_uri_pattern(['file/list']), 'active', '') }}">
+					<a href="{{ url('file/list') }}">资料下载</a>
+				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin-right:0px;">
 				<li class="customer-login"><a href="{{ url('customer/works') }}">作品</a></li>

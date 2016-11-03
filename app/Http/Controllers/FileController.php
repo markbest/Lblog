@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Response;
 
 class FileController extends Controller {
     public function show(){
-        $title = '资料下载';
-        $files = File::paginate('20');
-        return view('frontend.file')->withTitle($title)->withFiles($files);
+        $files = File::paginate('10');
+        return view('frontend.file')->withFiles($files);
     }
 
     public function download($id){

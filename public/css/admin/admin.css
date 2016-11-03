@@ -1,5 +1,6 @@
 /* base css */
 .admin_single_body{background-color:#3d4450;}
+.admin_body{font-size:13px;}
 .admin_body .navbar{margin-bottom:0px;height:50px;border:0px;}
 .admin_body .navbar-default{background-color:#323B55;}
 .admin_body .navbar-default .navbar-brand{padding:0px 5px;font-size:18px;line-height:50px;height:50px;color:#ffffff;}
