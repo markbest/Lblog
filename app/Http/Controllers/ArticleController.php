@@ -24,7 +24,7 @@ class ArticleController extends Controller {
 			  abort(404);
 		  }
 	  }
-	  Article::find($id)->addArticlesViews($id);
+	  Article::find($id)->addArticlesViews();
 	  return view('frontend.article.show',['article'=>$article]);
   }
 }
