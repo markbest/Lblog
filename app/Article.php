@@ -13,7 +13,7 @@ class Article extends Model {
 	{
 		$article = $this;
 	    $article->views = $article->views + 1;
-	    $article->save();
+	    $article->save(); 
 	}
 
 }
