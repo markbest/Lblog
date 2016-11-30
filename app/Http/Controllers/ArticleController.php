@@ -4,6 +4,8 @@ use App\Article;
 use DB;
 use EndaEditor;
 use Cache;
+use Illuminate\Support\Facades\Event;
+use App\Events\BlogView;
 
 class ArticleController extends Controller {
 
@@ -24,7 +26,7 @@ class ArticleController extends Controller {
 			  abort(404);
 		  }
 	  }
-	  Article::find($id)->addArticlesViews();
+      Event::fire(new BlogView(Article::find($id)));
 	  return view('frontend.article.show',['article'=>$article]);
   }
 }

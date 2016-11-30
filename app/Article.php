@@ -8,12 +8,4 @@ class Article extends Model {
     {
 		return $this->hasMany('App\Comment', 'article_id', 'id');
 	}
-	
-	public function addArticlesViews()
-	{
-		$article = $this;
-	    $article->views = $article->views + 1;
-	    $article->save(); 
-	}
-
 }
