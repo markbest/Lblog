@@ -1,20 +1,29 @@
 <?php namespace App\Http\Controllers;
 
-use App\Category;
-use App\Article;
+use App\Repositories\CategoryRepositoryEloquent;
+use App\Repositories\ArticleRepositoryEloquent;
 use Cache;
 
-class CategoryController extends Controller {
-  
-  	public function show($title)
+class CategoryController extends Controller
+{
+    private $category_repo;
+    private $article_repo;
+
+    public function __construct(CategoryRepositoryEloquent $category_repo, ArticleRepositoryEloquent $article_repo)
+    {
+        $this->category_repo = $category_repo;
+        $this->article_repo = $article_repo;
+    }
+
+    public function show($title)
 	{
-		$category = Category::where('title',$title)->first();
+        $category = $this->category_repo->findWhere(['title' => $title])->first();
 		if($category){
-			$articles = Article::where('cat_id','=',$category->id)->orderBy('created_at','desc')->paginate(getConfig('web_perpage'));
+            $articles = $this->article_repo->getCategoryArticlesList($category->id);
 		}else{
 			abort(404);
 		}
-		return view('frontend.category.show')->withArticles($articles)->withTitle($category->title);
+		return view('frontend.category.show' ,['articles' => $articles, 'title' => $category->title]);
 	}
 
 }

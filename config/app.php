@@ -137,6 +137,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 		'YuanChao\Editor\EndaEditorServiceProvider',
 		HieuLe\Active\ActiveServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
