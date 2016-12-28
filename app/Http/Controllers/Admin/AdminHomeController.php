@@ -24,7 +24,7 @@ class AdminHomeController extends Controller {
 	 */
 	public function index()
 	{
-        $articles = $this->article_repo->getAllWithCategory();
+        $articles = $this->article_repo->getAllWithCategory(30);
 		return view('admin.article.index', ['articles' => $articles]);
 	}
 	

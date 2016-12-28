@@ -40,9 +40,10 @@ class ArticleRepositoryEloquent extends BaseRepository implements ArticleReposit
      * Get Search Result By keyword
      *
      * @param $keyword
+     * @param $page_size
      * @return mixed
      */
-    public function getSearchResult($keyword){
+    public function getSearchResult($keyword, $page_size){
         $articles = DB::table('articles')
                   ->join('categories', 'articles.cat_id', '=', 'categories.id')
                   ->select('articles.*', 'categories.title as category_name')
@@ -52,22 +53,23 @@ class ArticleRepositoryEloquent extends BaseRepository implements ArticleReposit
                       }
                   })
                   ->orderBy('articles.created_at','desc')
-                  ->paginate('30');
+                  ->paginate($page_size);
         return $articles;
     }
 
     /**
      * Get all articles with category
      *
+     * @param $page_size
      * @return mixed
      */
-    public function getAllWithCategory()
+    public function getAllWithCategory($page_size)
     {
         $articles = DB::table('articles')
             ->join('categories', 'articles.cat_id', '=', 'categories.id')
             ->select('articles.*', 'categories.title as category_name')
             ->orderBy('articles.created_at','desc')
-            ->paginate('30');
+            ->paginate($page_size);
         return $articles;
     }
 }
