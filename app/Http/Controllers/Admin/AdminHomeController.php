@@ -1,28 +1,31 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use DB;
+use App\Repositories\ArticleRepositoryEloquent;
+
 use Illuminate\Http\Request;
 use EndaEditor;
 
 class AdminHomeController extends Controller {
 
-	/**
+    private $article_repo;
+
+    public function __construct(ArticleRepositoryEloquent $article)
+    {
+        $this->article_repo = $article;
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$articles = DB::table('articles')
-		          ->join('categories', 'articles.cat_id', '=', 'categories.id')
-		          ->select('articles.*', 'categories.title as category_name')
-		          ->orderBy('articles.created_at','desc')
-				  ->paginate('30');
-		return view('admin.article.index')->withArticles($articles);
+        $articles = $this->article_repo->getAllWithCategory();
+		return view('admin.article.index', ['articles' => $articles]);
 	}
 	
 	public function upload()

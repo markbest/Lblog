@@ -2,20 +2,24 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
-use Cache;
 
-use App\Category;
-use Illuminate\Support\Facades\DB;
+use App\Repositories\CategoryRepositoryEloquent;
 
-use Redirect, Input, Auth;
+use Cache, Redirect, Input, Auth;
 
 class CategoryController  extends Controller {
 
-	public function index()
+    private $category_repo;
+
+    public function __construct(CategoryRepositoryEloquent $category)
+    {
+        $this->category_repo = $category;
+    }
+
+    public function index()
 	{
-		$category = Category::where('parent_id','0')->orderBy('sort','asc')->get();
+        $category = $this->category_repo->orderBy('sort','asc')->findWhere(['parent_id' => '0']);
 		return view('admin.category.index')->withCategory($category);
 	}
 
@@ -30,21 +34,23 @@ class CategoryController  extends Controller {
 			'title' => 'required'
 		]);
 
-		$category = new Category;
-		$category->title = Input::get('title');
-		$category->parent_id = Input::get('category');
+        $category = $this->category_repo->create([
+            'title' => Input::get('title'),
+            'parent_id' => Input::get('category'),
+            'sort' => 0
+        ]);
 
-		if ($category->save()) {
+		if($category){
 			Cache::forget('all_categories');
 			return Redirect::to('admin/category');
-		} else {
+		}else{
 			return Redirect::back()->withInput()->withErrors('更新失败');
 		}
 	}
 
 	public function edit($id)
 	{
-		return view('admin.category.edit')->withCategory(Category::find($id));
+		return view('admin.category.edit', ['category' => $this->category_repo->find($id)]);
 	}
 
 	public function update(Request $request,$id)
@@ -53,25 +59,25 @@ class CategoryController  extends Controller {
 			'title' => 'required',
 		]);
 
-		$category = Category::find($id);
-		$category->title = Input::get('title');
-		$category->parent_id = Input::get('category');
-		$category->sort = Input::get('sort');
+        $category = $this->category_repo->update([
+            'title' => Input::get('title'),
+            'parent_id' => Input::get('category'),
+            'sort' => Input::get('sort')
+        ],$id);
 
-		if ($category->save()) {
+		if($category){
 			Cache::forget('all_categories');
 			return Redirect::to('admin/category');
-		} else {
+		}else{
 			return Redirect::back()->withInput()->withErrors('更新失败');
 		}
 	}
 
 	public function destroy($id)
 	{
-		$category = Category::find($id);
-		$category->delete();
-
+        $this->category_repo->delete($id);
 		Cache::forget('all_categories');
+
 		return Redirect::to('admin/category');
 	}
 }

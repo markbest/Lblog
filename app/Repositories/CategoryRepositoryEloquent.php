@@ -3,16 +3,10 @@
 namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
-use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\Contracts\CategoryRepository;
 
 use App\Category;
-use DB;
 
-/**
- * Class TestRepositoryEloquent
- * @package namespace App\Repositories;
- */
 class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
     /**
@@ -26,10 +20,15 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Get Category article list
+     *
+     * @param $category_id
+     * @return mixed
      */
-    public function boot()
+    public function getArticles($cat_id)
     {
-        //$this->pushCriteria(app(RequestCriteria::class));
+        $category = $this->makeModel()->find($cat_id);
+        $articles = $category->hasManyArticles()->paginate(getConfig('web_perpage'));
+        return $articles;
     }
 }

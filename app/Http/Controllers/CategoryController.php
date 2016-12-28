@@ -1,25 +1,23 @@
 <?php namespace App\Http\Controllers;
 
 use App\Repositories\CategoryRepositoryEloquent;
-use App\Repositories\ArticleRepositoryEloquent;
+
 use Cache;
 
 class CategoryController extends Controller
 {
     private $category_repo;
-    private $article_repo;
 
-    public function __construct(CategoryRepositoryEloquent $category_repo, ArticleRepositoryEloquent $article_repo)
+    public function __construct(CategoryRepositoryEloquent $category)
     {
-        $this->category_repo = $category_repo;
-        $this->article_repo = $article_repo;
+        $this->category_repo = $category;
     }
 
     public function show($title)
 	{
         $category = $this->category_repo->findWhere(['title' => $title])->first();
 		if($category){
-            $articles = $this->article_repo->getCategoryArticlesList($category->id);
+            $articles = $this->category_repo->getArticles($category->id);
 		}else{
 			abort(404);
 		}

@@ -2,40 +2,34 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
-use App\Article;
-use App\Category;
+use App\Repositories\ArticleRepositoryEloquent;
+use App\Repositories\CategoryRepositoryEloquent;
 
-use DB;
-use Redirect, Input, Auth, Cache;
+use DB, Redirect, Input, Auth, Cache;
 
 class ArticleController extends Controller {
 
-	public function index()
-	{
-		if(Input::get('keywords') != ''){
-			$articles = DB::table('articles')
-					  ->join('categories', 'articles.cat_id', '=', 'categories.id')
-					  ->select('articles.*', 'categories.title as category_name')
-					  ->where('articles.title','like','%'.Input::get('keywords').'%')
-					  ->orderBy('articles.created_at','desc')
-					  ->paginate('30');
-		}else{
-			$articles = DB::table('articles')
-					  ->join('categories', 'articles.cat_id', '=', 'categories.id')
-					  ->select('articles.*', 'categories.title as category_name')
-					  ->orderBy('articles.created_at','desc')
-					  ->paginate('30');
-		}
+    private $article_repo;
+    private $category_repo;
 
-		return view('admin.article.index')->withArticles($articles);
+    public function __construct(ArticleRepositoryEloquent $article, CategoryRepositoryEloquent $category)
+    {
+        $this->article_repo = $article;
+        $this->category_repo = $category;
+    }
+
+    public function index()
+	{
+        $keywords = Input::get('keywords');
+        $articles = $this->article_repo->getSearchResult($keywords);
+		return view('admin.article.index', ['articles' => $articles]);
 	}
 
 	public function create()
 	{
-		return view('admin.article.create')->withCategory(Category::all());
+		return view('admin.article.create', ['category' => $this->category_repo->all()]);
 	}
 
 	public function store(Request $request)
@@ -47,25 +41,28 @@ class ArticleController extends Controller {
 			'cat_id' => 'required',
 		]);
 
-		$article = new Article;
-		$article->title = Input::get('title');
-		$article->slug = Input::get('slug');
-		$article->summary = Input::get('summary');
-		$article->body = Input::get('body');
-		$article->cat_id = Input::get('cat_id');
-		$article->user_id = 1;//Auth::user()->id;
+        $article = $this->article_repo->create([
+            'title' => Input::get('title'),
+            'slug' => Input::get('slug'),
+            'summary' => Input::get('summary'),
+            'body' => Input::get('body'),
+            'cat_id' => Input::get('cat_id'),
+            'user_id' => Auth::id()
+        ]);
 
-		if ($article->save()) {
+		if($article){
 			Cache::forget('latest_articles');
 			return Redirect::to('admin/article');
-		} else {
+		}else{
 			return Redirect::back()->withInput()->withErrors('更新失败');
 		}
 	}
 
 	public function edit($id)
 	{
-		return view('admin.article.edit')->withArticle(Article::find($id))->withCategory(Category::all());
+        $articles = $this->article_repo->find($id);
+        $categories = $this->category_repo->all();
+		return view('admin.article.edit', ['article' => $articles, 'category' => $categories]);
 	}
 
 	public function update(Request $request,$id)
@@ -77,26 +74,26 @@ class ArticleController extends Controller {
 			'cat_id' => 'required',
 		]);
 
-		$article = Article::find($id);
-		$article->title = Input::get('title');
-		$article->slug = Input::get('slug');
-		$article->summary = Input::get('summary');
-		$article->body = Input::get('body');
-		$article->cat_id = Input::get('cat_id');
-		$article->user_id = 1;//Auth::user()->id;
+        $article = $this->article_repo->update([
+            'title' => Input::get('title'),
+            'slug' => Input::get('slug'),
+            'summary' => Input::get('summary'),
+            'body' => Input::get('body'),
+            'cat_id' => Input::get('cat_id'),
+            'user_id' => Auth::id()
+        ], $id);
 
-		if ($article->save()) {
+		if($article){
 			Cache::forget('article_'.$id);
 			return Redirect::to('admin/article');
-		} else {
+		}else{
 			return Redirect::back()->withInput()->withErrors('更新失败');
 		}
 	}
 
 	public function destroy($id)
 	{
-		$article = Article::find($id);
-		$article->delete();
+        $this->article_repo->delete($id);
 		Cache::forget('article_'.$id);
 
 		return Redirect::to('admin/article');
