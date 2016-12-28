@@ -23,7 +23,7 @@ class ArticleController extends Controller {
     public function index()
 	{
         $keywords = Input::get('keywords');
-        $articles = $this->article_repo->getSearchResult($keywords);
+        $articles = $this->article_repo->getSearchResult($keywords, 30);
 		return view('admin.article.index', ['articles' => $articles]);
 	}
 
