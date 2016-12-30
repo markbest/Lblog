@@ -32,6 +32,9 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 
+Route::get('api/article/list', 'ArticleController@listAll');
+Route::get('api/article/{id}', 'ArticleController@info');
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
     Route::get('/', 'AdminHomeController@index');
