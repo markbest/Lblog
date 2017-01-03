@@ -24,7 +24,7 @@ class FileController extends Controller
 
         $file_type = end($file_type_array);
         $file_name = $file->name;
-        $download_file = asset('uploads/public/file/'.$file_link);
+        $download_file = storage_path('app/public/file'). DIRECTORY_SEPARATOR . $file_link;
 
         $headers = array(
             'Content-Type: application/'.$file_type,
