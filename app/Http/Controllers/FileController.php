@@ -19,17 +19,12 @@ class FileController extends Controller
 
     public function download($id){
         $file = $this->file_repo->find($id);
-        $file_link = $file->link;
-        $file_type_array = explode('.', $file_link);
-
-        $file_type = end($file_type_array);
-        $file_name = $file->name;
-        $download_file = storage_path('app/public/file'). DIRECTORY_SEPARATOR . $file_link;
+        $download_file = storage_path('app/public/file'). DIRECTORY_SEPARATOR . $file->link;
 
         $headers = array(
-            'Content-Type: application/'.$file_type,
+            'Content-Type: application/' . $file->type,
         );
 
-        return Response::download($download_file, $file_name, $headers);
+        return Response::download($download_file, $file->name, $headers);
     }
 }
