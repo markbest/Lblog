@@ -9,5 +9,5 @@ class Picture extends Model{
      *
      * @var array
      */
-    protected $fillable = ['img_url'];
+    protected $fillable = ['img_url', 'note'];
 }

@@ -11,7 +11,7 @@ class File extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'size', 'link', 'type', 'created_at'];
+    protected $fillable = ['title', 'cat_id', 'name', 'size', 'link', 'type', 'created_at'];
 
     public $timestamps = false;
 }
