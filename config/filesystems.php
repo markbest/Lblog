@@ -48,6 +48,18 @@ return [
 			'root'   => storage_path().'/app',
 		],
 
+        'file' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/file'),
+            'visibility' => 'public',
+        ],
+
+        'image' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/image'),
+            'visibility' => 'public',
+        ],
+
 		's3' => [
 			'driver' => 's3',
 			'key'    => 'your-key',
