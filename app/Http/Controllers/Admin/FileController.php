@@ -27,7 +27,7 @@ class FileController extends Controller
         try{
             $file = Input::file('file');
             if($file->isValid()){
-                $newName =  date('Y'). DIRECTORY_SEPARATOR . date('m') . DIRECTORY_SEPARATOR .md5(date('ymdhis').$file->getClientOriginalName()).".".$file->getClientOriginalExtension();
+                $newName =  date('Y'). DIRECTORY_SEPARATOR . date('m') . DIRECTORY_SEPARATOR . md5(date('ymdhis').$file->getClientOriginalName()).".".$file->getClientOriginalExtension();
                 Storage::disk('file')->put($newName, file_get_contents($file->getRealPath()));
 
                 $status = 'ok';
@@ -59,11 +59,12 @@ class FileController extends Controller
             'title' => 'required',
         ]);
 
-        $file = $this->file_repo->find($id);
-        $file->title = Input::get('title');
-        $file->cat_id = Input::get('category');
+        $file = $this->file_repo->update([
+            'title' => Input::get('title'),
+            'cat_id' => Input::get('category')
+        ], $id);
 
-        if($file->save()){
+        if($file){
             return Redirect::to('admin/file');
         }else{
             return Redirect::back()->withInput()->withErrors('更新失败');

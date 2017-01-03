@@ -2,43 +2,41 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\PictureRepositoryEloquent;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
-use App\Picture;
 
-class PictureController extends Controller {
+class PictureController extends Controller
+{
+    private $picture_repo;
 
-	public function index()
+    public function __construct(PictureRepositoryEloquent $picture)
+    {
+        $this->picture_repo = $picture;
+    }
+
+    public function index()
 	{
 		return view('admin.picture.index');
 	}
 	
 	public function upload()
 	{
-		$path = 'uploads/picture/'.date('Y').'/'.date('m');
-		if(!file_exists($path)){
-			mkdir($path,0777,true);
-		}
-		
 		$result = array();
-		$url = '';
 		try{
 			$pic = Input::file('file');
 			if($pic->isValid()){
-				$newName =  md5(date('ymdhis').$pic->getClientOriginalName()).".".$pic->getClientOriginalExtension();
-				$pic->move($path,$newName);
-				$url = asset($path.'/'.$newName);
+				$newName =  date('Y'). DIRECTORY_SEPARATOR . date('m') . DIRECTORY_SEPARATOR . md5(date('ymdhis').$pic->getClientOriginalName()).".".$pic->getClientOriginalExtension();
+                Storage::disk('image')->put($newName, file_get_contents($pic->getRealPath()));
 				
 				$status = 'ok';
 				$message = 'success upload';
-				
-				$picture = new Picture;
-				$picture->img_url = $url;
-				$picture->save();
-				
+
+                $this->picture_repo->create(['img_url' => $newName]);
 			}else{
-				$message = $e->getMessage();
+				$message = 'Some error occurs when uploading file';
 				$status = 'nok';
 			}
 		}catch (\Exception $e){
@@ -47,23 +45,23 @@ class PictureController extends Controller {
 		}
 		$result['message'] = $message;
 		$result['status'] = $status;
-		$result['url'] = $url;
+		$result['url'] = storage_path('app/public/image') . DIRECTORY_SEPARATOR . $newName;
 		return json_encode($result);
 	}
 	
 	public function create()
 	{
-		return view('admin.picture.list')->withPictures(Picture::all()->sortBy('created_at desc'));
+        $pictures = $this->picture_repo->all()->sortBy('created_at desc');
+		return view('admin.picture.list', ['pictures' => $pictures]);
 	}
 	
 	public function update(Request $request,$id)
 	{
-		$picture = Picture::find($id);
 		if(Input::get('delete')){
-			$picture->delete();
+            $this->picture_repo->delete($id);
 		}else{
-			$picture->note = Input::get('note');
-			if($picture->save()){
+            $picture = $this->picture_repo->update(['note' => Input::get('note')],$id);
+			if($picture){
 				return Redirect::to('admin/picture/create');
 			}else{
 				return Redirect::back()->withInput()->withErrors('更新失败');
