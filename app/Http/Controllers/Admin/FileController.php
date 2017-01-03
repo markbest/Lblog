@@ -2,53 +2,50 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\FileRepositoryEloquent;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
-use Redirect, Input, Auth;
-use App\File;
-use DB;
+use Redirect, Input;
 
-class FileController extends Controller{
+class FileController extends Controller
+{
+    private $file_repo;
+
+    public function __construct(FileRepositoryEloquent $file)
+    {
+        $this->file_repo = $file;
+    }
+
     public function index(){
-        $files = DB::table('files')
-               ->leftjoin('categories', 'files.cat_id', '=', 'categories.id')
-               ->select('files.*', 'categories.title as category_name')
-               ->orderBy('files.created_at','desc')
-               ->paginate('30');
-        return view('admin.file')->withFiles($files);
+        $files = $this->file_repo->getAllWithCategory('30');
+        return view('admin.file', ['files' => $files]);
     }
 
     public function upload(){
-        $path = 'uploads/file/'.date('Y').'/'.date('m');
-        if(!file_exists($path)){
-            mkdir($path,0777,true);
-        }
-
         $result = array();
         try{
             $file = Input::file('file');
             if($file->isValid()){
-                $newName =  md5(date('ymdhis').$file->getClientOriginalName()).".".$file->getClientOriginalExtension();
-                $file->move($path, $newName);
+                $newName =  date('Y'). DIRECTORY_SEPARATOR . date('m') . DIRECTORY_SEPARATOR . md5(date('ymdhis').$file->getClientOriginalName()).".".$file->getClientOriginalExtension();
+                Storage::disk('file')->put($newName, file_get_contents($file->getRealPath()));
 
                 $status = 'ok';
                 $message = 'success upload';
 
-                $document = New File;
-                $document->cat_id = 0;
-                $document->name = $file->getClientOriginalName();
-                $document->size = $file->getClientSize();
-                $document->link = $path.'/'.$newName;
-                $document->type = $file->getClientOriginalExtension();
-                $document->created_at = date('Y-m-d h:i:s', time());
-                $document->save();
-
+                $this->file_repo->create([
+                    'name' => $file->getClientOriginalName(),
+                    'size' => $file->getClientSize(),
+                    'link' => $newName,
+                    'type' => $file->getClientOriginalExtension(),
+                    'created_at' => date('Y-m-d h:i:s', time())
+                ]);
             }else{
-                $message = $e->getMessage();
+                $message = 'Some error occurs when uploading file';
                 $status = 'nok';
             }
         }catch (\Exception $e){
-            $message = 'Some error occurs when uploading file';
+            $message = $e->getMessage();
             $status = 'nok';
         }
         $result['message'] = $message;
@@ -62,22 +59,21 @@ class FileController extends Controller{
             'title' => 'required',
         ]);
 
-        $file = File::find($id);
-        $file->title = Input::get('title');
-        $file->cat_id = Input::get('category');
+        $file = $this->file_repo->update([
+            'title' => Input::get('title'),
+            'cat_id' => Input::get('category')
+        ], $id);
 
-        if ($file->save()) {
+        if($file){
             return Redirect::to('admin/file');
-        } else {
+        }else{
             return Redirect::back()->withInput()->withErrors('更新失败');
         }
     }
 
     public function destroy($id)
     {
-        $file = File::find($id);
-        $file->delete();
-
+        $this->file_repo->delete($id);
         return Redirect::to('admin/file');
     }
 }

@@ -10,6 +10,7 @@
 - [hieu-le/active](https://github.com/letrunghieu/active)
 - [spatie/laravel-pjax](https://github.com/spatie/laravel-pjax)
 - [predis/predis](https://github.com/nrk/predis)
+- [prettus/l5-repository](https://github.com/andersao/l5-repository)
 
 # 博客特色
 - 简单的文章管理
