@@ -50,7 +50,7 @@ class CustomerController extends Controller {
 				
 				Mail::queue('emails.register', ['email' => $customer->email], function($message) use ($customer)
 				{
-					$message->to($customer->email, $customer->name)->subject('Welcome to register mark-here.com!');
+					$message->to($customer->email, $customer->name)->subject('Welcome to register markbest.site!');
 				});
 				return Redirect::action("CustomerController@login", ["path" => $request->fullUrl()]);
 			}else{
