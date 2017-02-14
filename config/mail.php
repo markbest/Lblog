@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'ma_fengtao@163.com', 'name' => 'mark-here.com'],
+	'from' => ['address' => 'ma_fengtao@163.com', 'name' => 'markbest.site'],
 
 	/*
 	|--------------------------------------------------------------------------

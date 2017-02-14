@@ -1,6 +1,6 @@
 @extends('_layouts.1column')
 @section('title')
-    作品 - mark-here.com
+    作品 - markbest.site
 @endsection
 @section('content')
     <div class="col-lg-12">
