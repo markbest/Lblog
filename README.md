@@ -1,5 +1,5 @@
-# laravel_blog
-基于laravel 5.1开发的轻量级的博客程序，Demo地址：http://markbest.site
+# Lblog
+基于laravel 5.1开发的轻量级的博客程序
 
 # 博客组件
 - [yuanchao/laravel-5-markdown-editor](https://github.com/yccphp/laravel-5-markdown-editor)
