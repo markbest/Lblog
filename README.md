@@ -1,21 +1,21 @@
-# Lblog
+## Lblog
 基于laravel 5.1开发的轻量级的博客程序
 
-# 博客组件
+## 博客组件
 - [yuanchao/laravel-5-markdown-editor](https://github.com/yccphp/laravel-5-markdown-editor)
 - [hieu-le/active](https://github.com/letrunghieu/active)
 - [spatie/laravel-pjax](https://github.com/spatie/laravel-pjax)
 - [predis/predis](https://github.com/nrk/predis)
 - [prettus/l5-repository](https://github.com/andersao/l5-repository)
 
-# 博客特色
+## 博客特色
 - 简单的文章管理
 - 简单的文章分类管理
 - 前台客户注册以及客户中心管理
 - 使用Redis管理博客的缓存
 - 资料后台上传、前台下载
 
-#安装使用
+## 安装使用
 - 从[github](https://github.com/markbest/laravel_blog)上下载源代码
 - 执行composer install
 - 配置env数据库信息
